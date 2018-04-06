@@ -1,291 +1,39 @@
 <template>
-  <Row>
-
-  <Col :span="24">
-    <chart :options="option1" class="echarts"></chart>
-    <chart :options="option2" class="echarts"></chart>
-  </Col>
-
-  </Row>
+    <Col  :xs="24" :sm="12"   :md="16" :lg="16" style="width: 100%">
+        <dash-chart-large></dash-chart-large>
+    </Col>
 </template>
 
-<style scoped>
-.echarts {
-  height: 500px;
-  width: 100%;
-  border-radius: 25px;
-}
+<style type="text/css" scoped>
+.state-overview{color:#fff}.state-overview .ivu-col{margin-bottom:20px}.state-overview .state-value .value{font-size:24px;font-weight:700;margin-bottom:5px}.state-overview .state-value .title{font-size:14px}.state-value{width:60%;display:inline-block}.symbol{width:35%;display:inline-block}.state-overview .panel{border-radius:4px;padding:25px 20px}.panel.purple{background:#6a8abe;box-shadow:0 5px 0 #5f7cab}.panel.red{background-color:#fc8675;box-shadow:0 5px 0 #e27869}.panel.blue{background:#5ab6df;box-shadow:0 5px 0 #51a3c8}.panel.green{background:#4acacb;box-shadow:0 5px 0 #42b5b6}.dash_income_chart{float:left}.ivu-row{margin-bottom:20px!important}.dash_income{border-radius:4px;background-color:#fff;height:80px;padding:15px}.staff_name{font-weight:900;font-size:16px}.staff_progress{margin-left:10px;width:90%}.staff_progress p{margin:0}.staff_list{border-radius:4px;margin-top:0;height:90px;display:flex;align-items:center}.animated{background-color:#eff0f4}li{margin-bottom:11px;margin-left:10px;margin-right:10px}.num{font-weight:700}.time{font-size:14px;font-weight:700}.content{padding-left:5px}.dashboard_feature{text-align:center}.demo-carousel{height:600px;line-height:200px;text-align:center;color:#fff;font-size:20px;background:#506b9e}.demo-carousel img{height:100%;width:100%}h3,h4,h5{margin:12px}h3{margin-bottom:20px}p{margin:12px}.row-margin-top{margin-top:30px}.state-info{position:absolute;right:15px;top:20px;margin-bottom:30px}.state-info .panel{margin-bottom:20px;float:right;margin-left:15px}.panel{background-color:#fff;border:1px solid transparent;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)}.panel-body{padding:15px}.state-info .panel .summary{float:left;margin-right:20px}.state-info .panel .summary span{color:#49586e;font-size:13px;font-weight:400;text-transform:uppercase;margin-bottom:10px}.state-info .panel .summary h3.red-txt{color:#fc8675}.state-info .panel .summary h3.green-txt{color:#65cea7}.state-info .panel .summary h3{font-size:200%;font-weight:700;line-height:20px;margin:0}.page-heading h3{color:#49586e;font-size:25px;font-size:11%;font-weight:400;margin:10px 0}.chart-bar{float:right;margin-top:5px}.chart-bar img{display:inline-block;width:68px;height:45px;vertical-align:top}@media screen and (max-width:767px){.state-info{position:static;width:100%;margin-top:15px}.state-info .panel{width:100%}}.panel.blue-box{background:none repeat scroll 0 0 #5ab5de;box-shadow:0 5px 0 #51a3c7;color:#fff}.twt-info h3{font-family:'Open Sans',sans-serif;font-size:16px;font-weight:900;margin:10px 0 30px 0;text-align:center}.twt-info p{font-size:18px;line-height:25px;font-style:italic;margin:0 0 20px 0;text-align:center}.twt-info p a{color:#98fdf4}.media:first-child{margin-top:0}.media.usr-info>.pull-left{margin-right:20px;margin-top:10px}.media>.pull-left{margin-right:10px}.pull-left{float:left}.pull-left{float:left!important}.custom-trq-footer{background:none repeat scroll 0 0 #4eb6b7!important;box-shadow:0 5px 0 #46a3a4;color:#fff;border-top:none}.panel-footer{padding:10px 15px;background-color:#f5f5f5;border-top:1px solid #ddd;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.usr-info .thumb{width:80px;height:80px;border-radius:50%;-webkit-border-radius:50%}.usr-info img{vertical-align:middle}.usr-info h4{color:#658585;margin-bottom:0}.media-heading{margin:0 0 5px}.usr-info .media-body span{color:#ea755c;font-size:12px;margin-bottom:20px;display:inline-block}.usr-info .media-body p{color:#b6bcbc}ul.user-states{list-style-type:none;padding:20px 0}ul.user-states li{text-align:center;float:left;width:33%;font-size:18px;margin:0}
 </style>
 
 <script>
-var xData = (function() {
-  var data = [];
-  for (var i = 1; i < 13; i++) {
-    data.push(i + "月份");
-  }
-  return data;
-})();
-
+import DashChartLarge from '../charts/DashChartLarge';
 export default {
-  name: "Physiology",
-  data: function() {
-    let data = [];
-
-    for (let i = 0; i <= 360; i++) {
-      let t = i / 180 * Math.PI;
-      let r = Math.sin(2 * t) * Math.cos(2 * t);
-      data.push([r, i]);
-    }
-
-    return {
-        option1: {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line'
-            }]
+  components:{DashChartLarge},
+  name: 'physiology',
+        data () {
+            return {
+                value1: 0,
+                value2: 0,
+                value3: 0,
+                speed:10000,
+            }
         },
-        option2: {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line'
-            }]
+        methods:{
+              test_logout(){
+                 this.$store.dispatch('LogOut').then(() => {
+                    this.$router.push({ path: '/login' });
+                  }).catch(err => {
+                    this.$message.error(err);
+                  });
+              }
         },
-
-    //   option: {
-    //     backgroundColor: "#344b58",
-    //     title: {
-    //       text: "本年商场顾客男女人数统计",
-    //       x: "4%",
-
-    //       textStyle: {
-    //         color: "#fff",
-    //         fontSize: "22"
-    //       },
-    //       subtextStyle: {
-    //         color: "#90979c",
-    //         fontSize: "16"
-    //       }
-    //     },
-    //     tooltip: {
-    //       trigger: "axis",
-    //       axisPointer: {
-    //         type: "shadow",
-    //         textStyle: {
-    //           color: "#fff"
-    //         }
-    //       }
-    //     },
-    //     grid: {
-    //       borderWidth: 0,
-    //       top: 110,
-    //       bottom: 95,
-    //       textStyle: {
-    //         color: "#fff"
-    //       }
-    //     },
-    //     legend: {
-    //       x: "4%",
-    //       top: "11%",
-    //       textStyle: {
-    //         color: "#90979c"
-    //       },
-    //       data: ["女", "男", "平均"]
-    //     },
-
-    //     calculable: true,
-    //     xAxis: [
-    //       {
-    //         type: "category",
-    //         axisLine: {
-    //           lineStyle: {
-    //             color: "#90979c"
-    //           }
-    //         },
-    //         splitLine: {
-    //           show: false
-    //         },
-    //         axisTick: {
-    //           show: false
-    //         },
-    //         splitArea: {
-    //           show: false
-    //         },
-    //         axisLabel: {
-    //           interval: 0
-    //         },
-    //         data: xData
-    //       }
-    //     ],
-    //     yAxis: [
-    //       {
-    //         type: "value",
-    //         splitLine: {
-    //           show: false
-    //         },
-    //         axisLine: {
-    //           lineStyle: {
-    //             color: "#90979c"
-    //           }
-    //         },
-    //         axisTick: {
-    //           show: false
-    //         },
-    //         axisLabel: {
-    //           interval: 0
-    //         },
-    //         splitArea: {
-    //           show: false
-    //         }
-    //       }
-    //     ],
-    //     dataZoom: [
-    //       {
-    //         show: true,
-    //         height: 30,
-    //         xAxisIndex: [0],
-    //         bottom: 30,
-    //         start: 10,
-    //         end: 80,
-    //         handleIcon:
-    //           "path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z",
-    //         handleSize: "110%",
-    //         handleStyle: {
-    //           color: "#d3dee5"
-    //         },
-    //         textStyle: {
-    //           color: "#fff"
-    //         },
-    //         borderColor: "#90979c"
-    //       },
-    //       {
-    //         type: "inside",
-    //         show: true,
-    //         height: 15,
-    //         start: 1,
-    //         end: 35
-    //       }
-    //     ],
-    //     series: [
-    //       {
-    //         name: "女",
-    //         type: "bar",
-    //         stack: "总量",
-    //         barMaxWidth: 35,
-    //         barGap: "10%",
-    //         itemStyle: {
-    //           normal: {
-    //             color: "rgba(255,144,128,1)",
-    //             label: {
-    //               show: true,
-    //               textStyle: {
-    //                 color: "#fff"
-    //               },
-    //               position: "insideTop",
-    //               formatter: function(p) {
-    //                 return p.value > 0 ? p.value : "";
-    //               }
-    //             }
-    //           }
-    //         },
-    //         data: [
-    //           709,
-    //           1917,
-    //           2455,
-    //           2610,
-    //           1719,
-    //           1433,
-    //           1544,
-    //           3285,
-    //           5208,
-    //           3372,
-    //           2484,
-    //           4078
-    //         ]
-    //       },
-
-    //       {
-    //         name: "男",
-    //         type: "bar",
-    //         stack: "总量",
-    //         itemStyle: {
-    //           normal: {
-    //             color: "rgba(0,191,183,1)",
-    //             barBorderRadius: 0,
-    //             label: {
-    //               show: true,
-    //               position: "top",
-    //               formatter: function(p) {
-    //                 return p.value > 0 ? p.value : "";
-    //               }
-    //             }
-    //           }
-    //         },
-    //         data: [
-    //           327,
-    //           1776,
-    //           507,
-    //           1200,
-    //           800,
-    //           482,
-    //           204,
-    //           1390,
-    //           1001,
-    //           951,
-    //           381,
-    //           220
-    //         ]
-    //       },
-    //       {
-    //         name: "总数",
-    //         type: "line",
-    //         stack: "总量",
-    //         symbolSize: 10,
-    //         symbol: "circle",
-    //         itemStyle: {
-    //           normal: {
-    //             color: "rgba(252,230,48,1)",
-    //             barBorderRadius: 0,
-    //             label: {
-    //               show: true,
-    //               position: "top",
-    //               formatter: function(p) {
-    //                 return p.value > 0 ? p.value : "";
-    //               }
-    //             }
-    //           }
-    //         },
-    //         data: [
-    //           1036,
-    //           3693,
-    //           2962,
-    //           3810,
-    //           2519,
-    //           1915,
-    //           1748,
-    //           4675,
-    //           6209,
-    //           4323,
-    //           2865,
-    //           4298
-    //         ]
-    //       }
-    //     ]
-    //   }
-    };
-  }
-};
+        mounted(){
+                const token=this.$store.getters.token;
+                
+          
+        }
+}
 </script>
