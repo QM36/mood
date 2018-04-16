@@ -2,23 +2,23 @@
 	<div style="width:100%">
         <div style="background:#eee;padding: 20px">
             <Card :bordered="false">
-                <p slot="title">异常</p>
-                <p></p>
+                <p slot="title">基础情况</p>
+                <p>{{ $route.params.id }}</p>
                 <p></p>
             </Card>
         </div>
         <Row>
             <Col span="6">
-                <router-link :to="`/physiology/${$route.params.id}`"><cool-hover-button type="swipe">生理数据</cool-hover-button></router-link>
+                <router-link :to="`/detail/physiology/${$route.params.id}`"><Button type="info">生理数据</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`/mood/${$route.params.id}`"><cool-hover-button type="swipe" shap="out">情绪记录</cool-hover-button></router-link>
+                <router-link :to="`/detail/mood/${$route.params.id}`"><Button type="success">情绪记录</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`/location/${$route.params.id}`"><cool-hover-button type="swipe" shap="in">位置记录</cool-hover-button></router-link>
+                <router-link :to="`/detail/location/${$route.params.id}`"><Button type="warning">位置记录</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`/abnormal/${$route.params.id}`"><cool-hover-button type="close">异常状况</cool-hover-button></router-link>
+                <router-link :to="`/detail/abnormal/${$route.params.id}`"><Button type="error">异常状况</Button></router-link>
             </Col>
         </Row>
     </div>

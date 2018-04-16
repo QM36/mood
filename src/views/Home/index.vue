@@ -16,7 +16,7 @@
                         <p slot="title">异常</p>
                         <p style="text-align:center;">{{ item.name }}</p>
                         <p style="text-align:center;">{{ item.type }}</p>
-                        <router-link :to="`/abnormal/${item.id}`"><Button type="error" long>处理异常</Button></router-link>   
+                        <router-link :to="`detail/abnormal/${item.id}`"><Button type="error" long>处理异常</Button></router-link>   
                     </Card>
                 </div>
             </Col>
@@ -104,73 +104,73 @@
                     {
                         id: 1,
                         name: '王小明',
-                        age: 18,
+                        age: 8,
                         address: '北京市朝阳区芍药居'
                     },
                     {
                         id: 2,
                         name: '张小刚',
-                        age: 25,
+                        age: 5,
                         address: '北京市海淀区西二旗'
                     },
                     {
                         id: 3,
                         name: '李小红',
-                        age: 30,
+                        age: 10,
                         address: '上海市浦东新区世纪大道'
                     },
                     {
                         id: 4,
                         name: '周小伟',
-                        age: 26,
+                        age: 6,
                         address: '深圳市南山区深南大道'
                     },
                     {
                         id: 5,
                         name: '王大明',
-                        age: 18,
+                        age: 8,
                         address: '北京市朝阳区芍药居'
                     },
                     {
                         id: 6,
                         name: '张大刚',
-                        age: 25,
+                        age: 5,
                         address: '北京市海淀区西二旗'
                     },
                     {
                         id: 7,
                         name: '李大红',
-                        age: 30,
+                        age: 10,
                         address: '上海市浦东新区世纪大道'
                     },
                     {
                         id: 8,
                         name: '周大伟',
-                        age: 26,
+                        age: 6,
                         address: '深圳市南山区深南大道'
                     },
                     {
                         id: 9,
                         name: '王明',
-                        age: 18,
+                        age: 8,
                         address: '北京市朝阳区芍药居'
                     },
                     {
                         id: 10,
                         name: '张刚',
-                        age: 25,
+                        age: 5,
                         address: '北京市海淀区西二旗'
                     },
                     {
                         id: 11,
                         name: '李红',
-                        age: 30,
+                        age: 10,
                         address: '上海市浦东新区世纪大道'
                     },
                     {
                         id: 12,
                         name: '周伟',
-                        age: 26,
+                        age: 6,
                         address: '深圳市南山区深南大道'
                     }
                 ]
