@@ -60,7 +60,7 @@ export const asyncRouterMap = [
         icon: 'speedometer',
         component: _import('Home/index')
       }, {
-        path: '',
+        path: 'detail/:id',
         name: 'Detail',
         icon: 'speedometer',
         component: _import('Detail/index')
