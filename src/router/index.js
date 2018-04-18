@@ -60,31 +60,30 @@ export const asyncRouterMap = [
         icon: 'speedometer',
         component: _import('Home/index')
       }, {
-        path: '/detail/:id',
+        path: '',
         name: 'Detail',
         icon: 'speedometer',
-        component: _import('Detail/index'),
-        children:[{
-            path: 'detail/physiology/:id',
-            name: 'Physilogy',
-            icon: 'speedometer',
-            component: _import('Detail/Physiology/index')
-          }, {
-            path: 'detail/mood/:id',
-            name: 'Mood',
-            icon: 'speedometer',
-            component: _import('Detail/Mood/index')
-          }, {
-            path: 'detail/location/:id',
-            name: 'Location',
-            icon: 'speedometer',
-            component: _import('Detail/Location/index')
-          }, {
-            path: 'detail/abnormal/:id',
-            name: 'Abnormal',
-            icon: 'speedometer',
-            component: _import('Detail/Abnormal/index')
-          }]
+        component: _import('Detail/index')
+      }, {
+        path: 'physiology/:id',
+        name: 'Physilogy',
+        icon: 'speedometer',
+        component: _import('Physiology/index')
+      }, {
+        path: 'mood/:id',
+        name: 'Mood',
+        icon: 'speedometer',
+        component: _import('Mood/index')
+      }, {
+        path: 'location/:id',
+        name: 'Location',
+        icon: 'speedometer',
+        component: _import('Location/index')
+      }, {
+        path: 'abnormal/:id',
+        name: 'Abnormal',
+        icon: 'speedometer',
+        component: _import('Abnormal/index')
       }],
   },
 

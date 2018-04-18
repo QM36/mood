@@ -50,7 +50,7 @@ export default {
 option : {
     backgroundColor: "#344b58",
     "title": {
-        "text": "本年商场顾客男女人数统计",
+        "text": "心率",
         x: "4%",
 
         textStyle: {
