@@ -3,11 +3,11 @@
         <div style="background:#eee;padding: 20px">
             <Card :bordered="false">
                 <p slot="title">基础情况</p>
-                <p>{{ $route.params.id }}</p>
+                <p>用户ID：{{ $route.params.id }}</p>
                 <p></p>
             </Card>
         </div>
-        <Row>
+        <Row style="width: 100%; padding:120px">
             <Col span="6">
                 <router-link :to="`/physiology/${$route.params.id}`"><Button type="info">生理数据</Button></router-link>
             </Col>
