@@ -13,10 +13,10 @@
             <Col span="6">
                 <div style="background:#eee;padding: 20px" v-for="item in abnormal">
                     <Card :bordered="false">
-                        <p slot="title">异常</p>
+                        <p slot="title">发现</p>
                         <p style="text-align:center;">{{ item.name }}</p>
                         <p style="text-align:center;">{{ item.type }}</p>
-                        <router-link :to="`detail/abnormal/${item.id}`"><Button type="error" long>处理异常</Button></router-link>   
+                        <router-link :to="`/physiology/${$route.params.id}`"><Button type="error" long>查看详情</Button></router-link>   
                     </Card>
                 </div>
             </Col>
@@ -33,19 +33,19 @@
                 abnormal:[{
                     id: 1,
                     name: '王小明',
-                    type: '位置异常'
+                    type: '开心'
                 },{
                     id: 2,
                     name: '张小刚',
-                    type: '心率异常'
+                    type: '开心'
                 },{
                     id: 3,
                     name: '李小红',
-                    type: '情绪异常'
+                    type: '开心'
                 },{
                     id: 4,
                     name: '周小伟',
-                    type: '位置异常'	
+                    type: '开心'	
                 }],
                 tableData: [],
                 columns3: [

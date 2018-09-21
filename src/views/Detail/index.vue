@@ -9,16 +9,16 @@
         </div>
         <Row>
             <Col span="6">
-                <router-link :to="`physiology/${$route.params.id}`"><Button type="info">生理数据</Button></router-link>
+                <router-link :to="`/physiology/${$route.params.id}`"><Button type="info">生理数据</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`mood/${$route.params.id}`"><Button type="success">情绪记录</Button></router-link>
+                <router-link :to="`/mood/${$route.params.id}`"><Button type="success">情绪记录</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`location/${$route.params.id}`"><Button type="warning">位置记录</Button></router-link>
+                <router-link :to="`/location/${$route.params.id}`"><Button type="warning">位置记录</Button></router-link>
             </Col>
             <Col span="6">
-                <router-link :to="`abnormal/${$route.params.id}`"><Button type="error">异常状况</Button></router-link>
+                <router-link :to="`/abnormal/${$route.params.id}`"><Button type="error">异常状况</Button></router-link>
             </Col>
         </Row>
     </div>

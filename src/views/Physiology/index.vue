@@ -5,11 +5,6 @@
     <chart :options="option" class="echarts"></chart>
 
   </Col>
-  <Col :span="24">
-    <chart :options="option" class="echarts"></chart>
-
-  </Col>
-
   </Row>
 </template>
 
@@ -50,7 +45,7 @@ export default {
 option : {
     backgroundColor: "#344b58",
     "title": {
-        "text": "心率",
+        "text": "心跳数据表",
         x: "4%",
 
         textStyle: {
@@ -87,7 +82,7 @@ option : {
         textStyle: {
             color: '#90979c',
         },
-        "data": ['女', '男', '平均']
+        "data": ['心跳值']
     },
      
 
@@ -164,7 +159,7 @@ option : {
         "end": 35
     }],
     "series": [{
-            "name": "女",
+            "name": "心跳值",
             "type": "bar",
             "stack": "总量",
             "barMaxWidth": 35,
@@ -200,76 +195,8 @@ option : {
             ],
         },
 
-        {
-            "name": "男",
-            "type": "bar",
-            "stack": "总量",
-            "itemStyle": {
-                "normal": {
-                    "color": "rgba(0,191,183,1)",
-                    "barBorderRadius": 0,
-                    "label": {
-                        "show": true,
-                        "position": "top",
-                        formatter: function(p) {
-                            return p.value > 0 ? (p.value) : '';
-                        }
-                    }
-                }
-            },
-            "data": [
-                327,
-                1776,
-                507,
-                1200,
-                800,
-                482,
-                204,
-                1390,
-                1001,
-                951,
-                381,
-                220
-            ]
-        }, {
-            "name": "总数",
-            "type": "line",
-            "stack": "总量",
-            symbolSize:10,
-            symbol:'circle',
-            "itemStyle": {
-                "normal": {
-                    "color": "rgba(252,230,48,1)",
-                    "barBorderRadius": 0,
-                    "label": {
-                        "show": true,
-                        "position": "top",
-                        formatter: function(p) {
-                            return p.value > 0 ? (p.value) : '';
-                        }
-                    }
-                }
-            },
-            "data": [
-                1036,
-                3693,
-                2962,
-                3810,
-                2519,
-                1915,
-                1748,
-                4675,
-                6209,
-                4323,
-                2865,
-                4298
-            ]
-        },
-    ]
+     ]
 }
-
-
-
     }
   }
 }
