@@ -25,13 +25,6 @@ var xData = function() {
     }
     return data;
 }();
-var yData = function () {
-    var data = [];
-    for (var i = 60; i <= 120; i += 5) {
-        data.push(i);
-    }
-    return data;
-};
 export default {
   data: function () {
     return {
@@ -103,10 +96,12 @@ export default {
                 "data": xData,
             }],
             "yAxis": [{
-                "type": "category",
+                "type": "value",
                 "splitLine": {
                     "show": false
                 },
+                
+                "min": 60,
                 "axisLine": {
                     lineStyle: {
                         color: '#90979c'
@@ -122,7 +117,6 @@ export default {
                 "splitArea": {
                     "show": false
                 },
-                "data": yData,
 
             }],
             "dataZoom": [{
