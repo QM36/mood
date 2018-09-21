@@ -10,7 +10,7 @@
 
 <style scoped>
 .echarts {
-  height: 500px;
+  height: 700px;
   width: 100%;
   border-radius: 25px;
 }
@@ -20,13 +20,18 @@
 <script>
 var xData = function() {
     var data = [];
-    for (var i = 1; i < 13; i++) {
-        data.push(i + "月份");
+    for (var i = 1; i <= 24; i += 2) {
+        data.push(i + ":00");
     }
     return data;
 }();
-
-
+var yData = function () {
+    var data = [];
+    for (var i = 60; i <= 120; i += 5) {
+        data.push(i);
+    }
+    return data;
+}();
 export default {
   data: function () {
     let data = []
@@ -45,7 +50,7 @@ export default {
 option : {
     backgroundColor: "#344b58",
     "title": {
-        "text": "心跳数据表",
+        "text": "心率数据表",
         x: "4%",
 
         textStyle: {
@@ -82,7 +87,7 @@ option : {
         textStyle: {
             color: '#90979c',
         },
-        "data": ['心跳值']
+        "data": ['心率']
     },
      
 
@@ -110,7 +115,7 @@ option : {
         "data": xData,
     }],
     "yAxis": [{
-        "type": "value",
+        "type": "category",
         "splitLine": {
             "show": false
         },
@@ -129,6 +134,7 @@ option : {
         "splitArea": {
             "show": false
         },
+        "data": yData,
 
     }],
     "dataZoom": [{
@@ -158,21 +164,20 @@ option : {
         "start": 1,
         "end": 35
     }],
-    "series": [{
-            "name": "心跳值",
-            "type": "bar",
+    "series": [
+        {
+            "name": "心率",
+            "type": "line",
             "stack": "总量",
-            "barMaxWidth": 35,
-            "barGap": "10%",
+            symbolSize:10,
+            symbol:'circle',
             "itemStyle": {
                 "normal": {
-                    "color": "rgba(255,144,128,1)",
+                    "color": "rgba(252,230,48,1)",
+                    "barBorderRadius": 0,
                     "label": {
                         "show": true,
-                        "textStyle": {
-                            "color": "#fff"
-                        },
-                        "position": "insideTop",
+                        "position": "top",
                         formatter: function(p) {
                             return p.value > 0 ? (p.value) : '';
                         }
@@ -180,20 +185,20 @@ option : {
                 }
             },
             "data": [
-                709,
-                1917,
-                2455,
-                2610,
-                1719,
-                1433,
-                1544,
-                3285,
-                5208,
-                3372,
-                2484,
-                4078
-            ],
-        },
+                103,
+                110,
+                111,
+                100,
+                99,
+                101,
+                100,
+                98,
+                97,
+                96,
+                94,
+                93
+            ]
+        }
 
      ]
 }
